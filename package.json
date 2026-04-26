@@ -1,5 +1,5 @@
 {
-  "name": "doearno-root",
+  "name": "doearno",
   "private": true,
   "scripts": {
     "build": "npm run build --prefix website",

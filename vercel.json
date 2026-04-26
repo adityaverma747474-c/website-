@@ -1,5 +1,0 @@
-{
-  "buildCommand": "cd website && npm install && NITRO_PRESET=vercel npm run build",
-  "outputDirectory": "website/.vercel/output",
-  "installCommand": "npm install --prefix website"
-}
