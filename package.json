@@ -1,0 +1,9 @@
+{
+  "name": "doearno-root",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix website",
+    "install": "npm install --prefix website",
+    "dev": "npm run dev --prefix website"
+  }
+}
