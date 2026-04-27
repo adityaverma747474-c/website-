@@ -8,5 +8,24 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Disable right-click
+      document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+      // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      document.addEventListener('keydown', (e) => {
+        if (
+          e.key === 'F12' ||
+          (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+          (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+          (e.ctrlKey && e.key === 'U') ||
+          (e.metaKey && e.altKey && e.key === 'I') || // Mac CMD+Option+I
+          (e.metaKey && e.altKey && e.key === 'J') || // Mac CMD+Option+J
+          (e.metaKey && e.key === 'U') // Mac CMD+U
+        ) {
+          e.preventDefault();
+        }
+      });
+    </script>
   </body>
 </html>
