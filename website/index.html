@@ -12,49 +12,44 @@
       // Disable right-click
       document.addEventListener('contextmenu', (e) => e.preventDefault());
 
-      // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      // Disable keyboard shortcuts
       document.addEventListener('keydown', (e) => {
         if (
           e.key === 'F12' ||
           (e.ctrlKey && e.shiftKey && e.key === 'I') ||
           (e.ctrlKey && e.shiftKey && e.key === 'J') ||
           (e.ctrlKey && e.key === 'U') ||
-          (e.metaKey && e.altKey && e.key === 'I') || // Mac CMD+Option+I
-          (e.metaKey && e.altKey && e.key === 'J') || // Mac CMD+Option+J
-          (e.metaKey && e.key === 'U') // Mac CMD+U
+          (e.metaKey && e.altKey && e.key === 'I') ||
+          (e.metaKey && e.altKey && e.key === 'J') ||
+          (e.metaKey && e.key === 'U')
         ) {
           e.preventDefault();
         }
       });
 
-      // Anti-Debugger: Pauses the execution if DevTools is open
-      (function() {
+      // DevTools detection trap
+      function detectDevTools() {
         const threshold = 160;
-        const check = () => {
-          const startTime = performance.now();
-          debugger;
-          const endTime = performance.now();
-          if (endTime - startTime > threshold) {
-            window.location.replace("about:blank");
-          }
-        };
-        
-        setInterval(check, 1000);
+        const isDevToolsOpen = 
+          window.outerWidth - window.innerWidth > threshold || 
+          window.outerHeight - window.innerHeight > threshold;
 
-        // Detect window size changes (common when opening DevTools)
-        window.onresize = () => {
-          if ((window.outerHeight - window.innerHeight) > threshold || (window.outerWidth - window.innerWidth) > threshold) {
-            window.location.replace("about:blank");
-          }
-        };
-      })();
+        if (isDevToolsOpen) {
+          document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;font-family:sans-serif;background:#000;color:#fff;text-align:center;padding:20px;"><div><h1>Access Denied</h1><p>Please close Developer Tools to view this website.</p></div></div>';
+          window.location.reload();
+        }
+      }
 
-
-      // Clear console regularly
+      // Debugger trap to pause execution if DevTools is open
       setInterval(() => {
-        console.clear();
-      }, 500);
+        const startTime = performance.now();
+        debugger;
+        if (performance.now() - startTime > 100) {
+          detectDevTools();
+        }
+      }, 1000);
 
+      window.addEventListener('resize', detectDevTools);
     </script>
   </body>
 </html>
