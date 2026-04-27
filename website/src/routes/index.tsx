@@ -71,10 +71,10 @@ function Header() {
     <header className="sticky top-0 z-50 glass border-b border-border/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <a href="/" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft border border-primary/30">
-            <span className="text-primary text-lg">🚀</span>
+          <span className="grid h-9 w-9 place-items-center rounded-xl overflow-hidden border border-primary/30">
+            <img src="https://i.ibb.co/bMmCYpfm/logo.jpg" alt="Doearno Logo" className="w-full h-full object-cover" />
           </span>
-          <span className="font-serif text-2xl tracking-tight">doearno</span>
+          <span className="font-serif text-2xl tracking-tight">Doearno</span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm">
           <a href="#earn" className="text-muted-foreground hover:text-primary transition-colors">Earn</a>
@@ -480,10 +480,10 @@ function Footer() {
     <footer className="bg-background/40 backdrop-blur-md border-t border-border/10 py-12 relative z-10">
       <div className="mx-auto max-w-7xl px-6 flex flex-wrap items-center justify-between gap-6">
         <div className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary-soft border border-primary/30">
-            <span className="text-primary text-lg">🚀</span>
+          <span className="grid h-9 w-9 place-items-center rounded-xl overflow-hidden border border-primary/30">
+            <img src="https://i.ibb.co/bMmCYpfm/logo.jpg" alt="Doearno Logo" className="w-full h-full object-cover" />
           </span>
-          <span className="font-serif text-2xl">doearno</span>
+          <span className="font-serif text-2xl">Doearno</span>
         </div>
         <p className="eyebrow text-muted-foreground">LEARN · DO · GROW · UPI PAYOUTS · MADE IN INDIA</p>
         <p className="text-sm text-muted-foreground">© 2026 Doearno · doearno@gmail.com</p>
