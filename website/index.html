@@ -30,16 +30,25 @@
       // Anti-Debugger: Pauses the execution if DevTools is open
       (function() {
         const threshold = 160;
-        setInterval(() => {
+        const check = () => {
           const startTime = performance.now();
           debugger;
           const endTime = performance.now();
           if (endTime - startTime > threshold) {
-            // If it took too long, DevTools might be open (due to 'debugger' pause)
-            document.body.innerHTML = "<h1>Security Access Denied</h1><p>Please close Developer Tools to view this site.</p>";
+            window.location.replace("about:blank");
           }
-        }, 1000);
+        };
+        
+        setInterval(check, 1000);
+
+        // Detect window size changes (common when opening DevTools)
+        window.onresize = () => {
+          if ((window.outerHeight - window.innerHeight) > threshold || (window.outerWidth - window.innerWidth) > threshold) {
+            window.location.replace("about:blank");
+          }
+        };
       })();
+
 
       // Clear console regularly
       setInterval(() => {
