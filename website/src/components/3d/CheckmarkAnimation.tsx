@@ -6,7 +6,7 @@ export default function CheckmarkAnimation() {
   return (
     <div ref={ref} className="checkmark-wrap" style={{ display: "inline-flex", justifyContent: "center" }}>
       <svg width="64" height="64" viewBox="0 0 64 64" style={{ overflow: "visible" }}>
-        {/* Outer ring */}
+
         <circle
           cx="32" cy="32" r="28"
           fill="none"
@@ -20,7 +20,7 @@ export default function CheckmarkAnimation() {
             filter: "drop-shadow(0 0 8px rgba(0,212,170,0.6))",
           }}
         />
-        {/* Checkmark */}
+
         <polyline
           points="20,34 28,42 44,24"
           fill="none"
@@ -35,7 +35,7 @@ export default function CheckmarkAnimation() {
             filter: "drop-shadow(0 0 6px rgba(0,212,170,0.8))",
           }}
         />
-        {/* Glow pulse */}
+
         {inView && (
           <circle cx="32" cy="32" r="28" fill="none" stroke="var(--color-primary)" strokeWidth="2" opacity="0.3">
             <animate attributeName="r" from="28" to="42" dur="1s" begin="0.8s" fill="freeze" />

@@ -14,7 +14,7 @@ function FloatingObject({ position, speed, rotationSpeed, scale, color }: any) {
     mesh.current.rotation.x = t * rotationSpeed;
     mesh.current.rotation.y = t * rotationSpeed * 0.8;
     
-    // Parallax effect with scroll
+
     mesh.current.position.y = position[1] - (scrollY * speed * 0.005);
   });
 
@@ -26,7 +26,7 @@ function FloatingObject({ position, speed, rotationSpeed, scale, color }: any) {
         ) : (
           <octahedronGeometry args={[1, 0]} />
         )}
-        {/* Optimized material: Physical instead of Transmission for background */}
+
         <meshPhysicalMaterial
           transparent
           opacity={0.15}
@@ -83,7 +83,7 @@ export default function Global3DBackground() {
       <Canvas
         camera={{ position: [0, 0, 10], fov: 50 }}
         gl={{ 
-          antialias: false, // Disable antialiasing for background
+
           alpha: true,
           powerPreference: "high-performance"
         }}

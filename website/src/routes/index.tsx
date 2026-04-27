@@ -19,10 +19,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-/**
- * A helper component to lazy-render children only when they enter the viewport.
- * This significantly improves initial load and memory usage.
- */
+
 function LazySection({ children, height = "400px" }: { children: React.ReactNode; height?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: "200px" });

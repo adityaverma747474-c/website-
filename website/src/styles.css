@@ -4,19 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
+
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -199,11 +187,9 @@
     display: none !important;
   }
 
-  /* ═══════════════════════════════════════════════════════════
-     3D HOVER & ANIMATION EFFECTS
-     ═══════════════════════════════════════════════════════════ */
 
-  /* 3D Lift button effect */
+
+
   .btn-3d {
     position: relative;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
@@ -241,7 +227,7 @@
     opacity: 1;
   }
 
-  /* Glassmorphism */
+
   .glass {
     background: oklch(1 0 0 / 40%);
     backdrop-filter: blur(12px);
@@ -253,7 +239,7 @@
     border: 1px solid oklch(1 0 0 / 10%);
   }
 
-  /* Improved Card 3D tilt on hover */
+
   .card-3d {
     transition: transform 0.5s cubic-bezier(0.2, 1, 0.3, 1),
                 box-shadow 0.5s ease,
@@ -269,7 +255,7 @@
     border-color: var(--color-primary) !important;
   }
 
-  /* Scroll reveal animation */
+
   .reveal {
     opacity: 0;
     transform: translateY(40px) scale(0.98);
@@ -281,13 +267,13 @@
     transform: translateY(0) scale(1);
   }
 
-  /* Stagger children */
+
   .reveal-stagger > .reveal:nth-child(1) { transition-delay: 0.1s; }
   .reveal-stagger > .reveal:nth-child(2) { transition-delay: 0.2s; }
   .reveal-stagger > .reveal:nth-child(3) { transition-delay: 0.3s; }
   .reveal-stagger > .reveal:nth-child(4) { transition-delay: 0.4s; }
 
-  /* Glow pulse for important elements */
+
   .glow-pulse {
     animation: glowPulse 2.5s ease-in-out infinite;
   }
@@ -301,25 +287,25 @@
     }
   }
 
-  /* 3D scene container */
+
   .scene-3d {
     perspective: 1000px;
     transform-style: preserve-3d;
   }
 
-  /* Smooth section transitions */
+
   section {
     position: relative;
   }
 
-  /* Step icon container */
+
   .step-icon-3d {
     width: 120px;
     height: 120px;
     margin: 0 auto 1.5rem;
   }
 
-  /* Hero 3D scene overlay */
+
   .hero-3d-scene {
     position: absolute;
     inset: 0;
@@ -330,7 +316,7 @@
     pointer-events: auto;
   }
 
-  /* Gradient border effect */
+
   .gradient-border {
     position: relative;
   }
@@ -353,7 +339,7 @@
     pointer-events: none;
   }
 
-  /* Shimmer text effect */
+
   .shimmer-text {
     background: linear-gradient(
       110deg,

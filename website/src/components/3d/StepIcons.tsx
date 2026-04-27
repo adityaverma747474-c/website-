@@ -3,7 +3,7 @@ import { Float, Sparkles } from "@react-three/drei";
 import { useRef, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 
-/* ── Step 1: 3D User/Profile icon ─────────────────────────── */
+
 function UserIcon() {
   const g = useRef<THREE.Group>(null);
   useFrame(({ clock }) => {
@@ -17,15 +17,15 @@ function UserIcon() {
   }), []);
   return (
     <group ref={g}>
-      {/* Head */}
+
       <mesh position={[0, 0.55, 0]} material={mat}>
         <sphereGeometry args={[0.28, 32, 32]} />
       </mesh>
-      {/* Body arc */}
+
       <mesh position={[0, -0.15, 0]} material={mat}>
         <capsuleGeometry args={[0.32, 0.25, 16, 16]} />
       </mesh>
-      {/* Glow ring */}
+
       <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0.55, 0]}>
         <torusGeometry args={[0.4, 0.015, 8, 48]} />
         <meshStandardMaterial color="#00d4aa" emissive="#00d4aa" emissiveIntensity={3} transparent opacity={0.5} />
@@ -34,7 +34,7 @@ function UserIcon() {
   );
 }
 
-/* ── Step 2: 3D Clipboard icon ────────────────────────────── */
+
 function ClipboardIcon() {
   const g = useRef<THREE.Group>(null);
   const check = useRef<THREE.Group>(null);
@@ -49,24 +49,24 @@ function ClipboardIcon() {
   });
   return (
     <group ref={g}>
-      {/* Board */}
+
       <mesh>
         <boxGeometry args={[0.55, 0.75, 0.04]} />
         <meshStandardMaterial color="#1a2a25" metalness={0.5} roughness={0.3} />
       </mesh>
-      {/* Clip */}
+
       <mesh position={[0, 0.42, 0.02]}>
         <boxGeometry args={[0.2, 0.08, 0.04]} />
         <meshStandardMaterial color="#00d4aa" metalness={0.8} roughness={0.15} />
       </mesh>
-      {/* Lines */}
+
       {[-0.15, 0, 0.15].map((y, i) => (
         <mesh key={i} position={[0, y, 0.025]}>
           <boxGeometry args={[0.35 - i * 0.05, 0.03, 0.005]} />
           <meshStandardMaterial color="#00d4aa" emissive="#00d4aa" emissiveIntensity={0.8} transparent opacity={0.7 - i * 0.15} />
         </mesh>
       ))}
-      {/* Checkmark */}
+
       <group ref={check} position={[0.15, -0.22, 0.03]}>
         <mesh>
           <sphereGeometry args={[0.06, 16, 16]} />
@@ -77,7 +77,7 @@ function ClipboardIcon() {
   );
 }
 
-/* ── Step 3: 3D Wallet icon ───────────────────────────────── */
+
 function WalletIcon() {
   const g = useRef<THREE.Group>(null);
   const coin = useRef<THREE.Mesh>(null);
@@ -94,22 +94,22 @@ function WalletIcon() {
   });
   return (
     <group ref={g}>
-      {/* Wallet body */}
+
       <mesh>
         <boxGeometry args={[0.65, 0.45, 0.15]} />
         <meshStandardMaterial color="#0f1f18" metalness={0.6} roughness={0.25} />
       </mesh>
-      {/* Flap */}
+
       <mesh position={[0, 0.22, 0.02]} rotation={[-0.2, 0, 0]}>
         <boxGeometry args={[0.65, 0.08, 0.12]} />
         <meshStandardMaterial color="#00d4aa" metalness={0.7} roughness={0.2} />
       </mesh>
-      {/* Clasp */}
+
       <mesh position={[0, 0.2, 0.1]}>
         <sphereGeometry args={[0.035, 16, 16]} />
         <meshStandardMaterial color="#ffd700" emissive="#ffd700" emissiveIntensity={1} metalness={0.9} roughness={0.1} />
       </mesh>
-      {/* Floating coin */}
+
       <mesh ref={coin} rotation={[Math.PI / 2, 0, 0]}>
         <cylinderGeometry args={[0.1, 0.1, 0.02, 32]} />
         <meshStandardMaterial color="#ffd700" emissive="#ffd700" emissiveIntensity={0.5} metalness={0.95} roughness={0.08} />
@@ -118,7 +118,7 @@ function WalletIcon() {
   );
 }
 
-/* ── Individual step scene wrapper ────────────────────────── */
+
 function StepScene({ children }: { children: React.ReactNode }) {
   const [ok, setOk] = useState(false);
   useEffect(() => setOk(true), []);
