@@ -13,8 +13,6 @@ function FloatingObject({ position, speed, rotationSpeed, scale, color }: any) {
     const t = state.clock.getElapsedTime();
     mesh.current.rotation.x = t * rotationSpeed;
     mesh.current.rotation.y = t * rotationSpeed * 0.8;
-    
-
     mesh.current.position.y = position[1] - (scrollY * speed * 0.005);
   });
 
@@ -26,7 +24,6 @@ function FloatingObject({ position, speed, rotationSpeed, scale, color }: any) {
         ) : (
           <octahedronGeometry args={[1, 0]} />
         )}
-
         <meshPhysicalMaterial
           transparent
           opacity={0.15}
@@ -83,7 +80,6 @@ export default function Global3DBackground() {
       <Canvas
         camera={{ position: [0, 0, 10], fov: 50 }}
         gl={{ 
-
           alpha: true,
           powerPreference: "high-performance"
         }}

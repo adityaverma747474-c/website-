@@ -61,7 +61,6 @@ function Phone() {
   return (
     <Float speed={1.4} rotationIntensity={0.15} floatIntensity={0.3}>
       <group ref={group} position={[0.7, 0.25, 0]}>
-
         <mesh castShadow>
           <boxGeometry args={[1.15, 2.05, 0.08]} />
           <MeshTransmissionMaterial
@@ -73,12 +72,10 @@ function Phone() {
             roughness={0.2}
           />
         </mesh>
-
         <mesh ref={screen} position={[0, 0, 0.045]}>
           <planeGeometry args={[0.98, 1.85]} />
           <meshStandardMaterial color="#0a2a1f" emissive="#00d4aa" emissiveIntensity={0.35} />
         </mesh>
-
         <group ref={coin} position={[0, -0.2, 0.052]} scale={0.25}>
           <mesh rotation={[Math.PI / 2, 0, 0]}>
             <cylinderGeometry args={[0.7, 0.7, 0.08, 12]} />
@@ -89,7 +86,6 @@ function Phone() {
             <meshStandardMaterial color="#fbbf24" metalness={0.95} />
           </mesh>
         </group>
-
         {[0.65, 0.45, 0.25].map((y, i) => (
           <mesh key={i} position={[0, y, 0.052]}>
             <boxGeometry args={[0.6, 0.05, 0.005]} />

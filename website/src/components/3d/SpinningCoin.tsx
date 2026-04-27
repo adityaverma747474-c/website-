@@ -22,26 +22,20 @@ function Indian20RupeeCoin() {
 
   return (
     <group>
-
       <mesh ref={aura}>
         <sphereGeometry args={[1.2, 16, 16]} />
         <meshStandardMaterial color="#00d4aa" emissive="#00d4aa" emissiveIntensity={0.5} transparent opacity={0.1} side={THREE.BackSide} />
       </mesh>
 
       <group ref={coin}>
-
         <mesh rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.8, 0.8, 0.1, 12]} />
           <meshStandardMaterial color="#e5e7eb" metalness={0.9} roughness={0.1} />
         </mesh>
-
-
         <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
           <cylinderGeometry args={[0.55, 0.55, 0.11, 32]} />
           <meshStandardMaterial color="#fbbf24" metalness={0.95} roughness={0.05} />
         </mesh>
-
-
         <Text
           position={[0, 0.15, 0.06]}
           fontSize={0.25}
@@ -50,8 +44,6 @@ function Indian20RupeeCoin() {
         >
           ₹
         </Text>
-
-
         <Text
           position={[0, -0.1, 0.06]}
           fontSize={0.3}

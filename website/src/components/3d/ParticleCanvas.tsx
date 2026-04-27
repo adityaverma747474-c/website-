@@ -67,7 +67,6 @@ export default function ParticleCanvas() {
       ctx.clearRect(0, 0, w, h);
 
       for (const p of particles.current) {
-
         const dx = p.x - mouse.current.x;
         const dy = p.y - mouse.current.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -76,16 +75,12 @@ export default function ParticleCanvas() {
           p.vx += (dx / dist) * force;
           p.vy += (dy / dist) * force;
         }
-
-
         p.y = p.baseY + Math.sin(time * 0.6 + p.phase) * 18;
         p.x += p.vx;
         p.baseY += p.vy;
         p.vx *= 0.96;
         p.vy *= 0.96;
         p.rot += p.rotV;
-
-
         if (p.x < -20) p.x = w + 20;
         if (p.x > w + 20) p.x = -20;
         if (p.baseY < -20) p.baseY = h + 20;
@@ -97,7 +92,6 @@ export default function ParticleCanvas() {
         ctx.globalAlpha = p.alpha;
 
         if (p.type === "coin") {
-
           ctx.beginPath();
           ctx.arc(0, 0, p.size, 0, Math.PI * 2);
           const g = ctx.createRadialGradient(0, 0, 0, 0, 0, p.size);
@@ -106,28 +100,24 @@ export default function ParticleCanvas() {
           g.addColorStop(1, "#007755");
           ctx.fillStyle = g;
           ctx.fill();
-
           ctx.fillStyle = "rgba(0,0,0,0.4)";
           ctx.font = `bold ${p.size}px sans-serif`;
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
           ctx.fillText("₹", 0, 1);
         } else if (p.type === "gift") {
-
           const s = p.size;
           ctx.fillStyle = "#00d4aa";
           ctx.fillRect(-s * 0.6, -s * 0.4, s * 1.2, s * 0.9);
           ctx.fillStyle = "#00ffcc";
           ctx.fillRect(-s * 0.08, -s * 0.4, s * 0.16, s * 0.9);
           ctx.fillRect(-s * 0.6, s * 0.05, s * 1.2, s * 0.12);
-
           ctx.beginPath();
           ctx.arc(-s * 0.15, -s * 0.4, s * 0.18, 0, Math.PI, true);
           ctx.arc(s * 0.15, -s * 0.4, s * 0.18, 0, Math.PI, true);
           ctx.fillStyle = "#00ffcc";
           ctx.fill();
         } else {
-
           const s = p.size * 0.6;
           ctx.beginPath();
           for (let j = 0; j < 4; j++) {

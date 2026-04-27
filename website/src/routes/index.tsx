@@ -18,8 +18,6 @@ import { StepIcon1, StepIcon2, StepIcon3 } from "@/components/3d/StepIcons";
 export const Route = createFileRoute("/")({
   component: Index,
 });
-
-
 function LazySection({ children, height = "400px" }: { children: React.ReactNode; height?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { margin: "200px" });
