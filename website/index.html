@@ -26,6 +26,26 @@
           e.preventDefault();
         }
       });
+
+      // Anti-Debugger: Pauses the execution if DevTools is open
+      (function() {
+        const threshold = 160;
+        setInterval(() => {
+          const startTime = performance.now();
+          debugger;
+          const endTime = performance.now();
+          if (endTime - startTime > threshold) {
+            // If it took too long, DevTools might be open (due to 'debugger' pause)
+            document.body.innerHTML = "<h1>Security Access Denied</h1><p>Please close Developer Tools to view this site.</p>";
+          }
+        }, 1000);
+      })();
+
+      // Clear console regularly
+      setInterval(() => {
+        console.clear();
+      }, 500);
+
     </script>
   </body>
 </html>
